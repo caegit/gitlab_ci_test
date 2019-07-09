@@ -1,0 +1,19 @@
+image: tmaier/docker-compose:latest
+services:
+  - docker:dind
+
+stages:
+  - test
+  - build
+
+test_service:
+  stage: test
+  script:
+    - docker info
+    - docker-compose --version
+    - echo "test"
+
+build_service:
+  stage: build
+  script:
+    - echo "build"
